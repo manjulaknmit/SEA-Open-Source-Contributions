@@ -3,8 +3,8 @@
 
 ## Student Details
 
-**Name:** Harshini  
-**USN:** 1NT25CS395  
+**Name:**V ROHITH REDDY  
+**USN:** NB25CSE411  
 **Assigned Case Study:** Question 4 - Open-Source Software Engineering
 
 ## 1. Introduction
