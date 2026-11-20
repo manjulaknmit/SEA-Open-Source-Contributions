@@ -1,0 +1,73 @@
+# DevOps and CI/CD Pipeline for an Online Shopping Application
+
+**Name:** Sneha k Binu
+**USN:** NB25CSE351
+**Assigned Case Study:** Question 3 – DevOps Practices and CI/CD Pipelines
+
+---
+
+## 1. Introduction
+
+**DevOps** is a way of working where the **Dev**elopment team and the **Op**erations team collaborate closely and automate as much as possible. The goal is to release software faster, more often and with fewer errors.
+
+- **Continuous Integration (CI):** developers merge code into a shared repository often. Every merge automatically triggers a build and tests, so bugs are found early.
+- **Continuous Delivery (CD):** every change that passes tests is automatically prepared for release, and a person approves the final deployment.
+- **Continuous Deployment (CD):** the same, but the release to production also happens automatically with no manual approval.
+
+## 2. Problem Analysis
+
+The online shopping company updates its app often, but:
+
+- testing is done manually, which is slow;
+- deployment is manual, so steps get missed;
+- bugs reach customers;
+- releases are delayed.
+
+## 3. Proposed Solution
+
+Set up a **CI/CD pipeline** (for example with GitHub Actions or Jenkins) that runs automatically whenever a developer pushes code.
+
+### CI/CD Pipeline Stages
+
+1. **Source** – developer pushes code to GitHub.
+2. **Build** – the pipeline compiles the code and packages the app (for example into a Docker image).
+3. **Test** – automated unit, integration and basic security tests run. If any test fails, the pipeline stops and the developer is told.
+4. **Release/Staging** – the app is deployed to a test environment for a final check.
+5. **Deploy** – the app is released to production (the live website).
+6. **Monitor** – logs and alerts track errors and performance; feedback goes back to developers.
+
+### Build, Test and Deploy Explained
+
+- **Build:** turns source code into a runnable package. It also catches compile errors.
+- **Test:** automatically checks that new code works and old features did not break.
+- **Deploy:** automatically puts the tested package on the servers using scripts, so the same steps run every time.
+
+### CI/CD Pipeline Diagram
+
+```mermaid
+flowchart LR
+    A[Developer pushes code] --> B[Build]
+    B --> C[Automated Tests]
+    C -->|Fail| X[Notify developer]
+    C -->|Pass| D[Deploy to Staging]
+    D --> E[Deploy to Production]
+    E --> F[Monitor and Feedback]
+    F --> A
+```
+
+## 4. Benefits and Challenges
+
+### Benefits of Automation
+
+1. **Faster releases** – new features and bug fixes reach customers quickly.
+2. **Fewer errors** – automated tests and scripted deployment remove human mistakes.
+3. **Early bug detection and better teamwork** – problems are found right after a commit, when they are cheap to fix.
+
+### Challenges
+
+- Initial setup effort and learning the tools.
+- Tests must be written and maintained, or the pipeline gives little value.
+
+## 5. Conclusion
+
+A CI/CD pipeline replaces slow manual testing and deployment with an automated flow of build, test and release. This helps the shopping company ship updates faster and more safely, and DevOps culture keeps improving the product through continuous feedback.
